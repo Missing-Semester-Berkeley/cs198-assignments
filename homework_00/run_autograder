@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Set up autograder files
+
+cp /autograder/submission/semester /autograder/source/semester
+cp /autograder/submission/last-modified.txt /autograder/source/last-modified.txt
+
+cd /autograder/source
+
+python3 run_tests.py generate_gradescope
