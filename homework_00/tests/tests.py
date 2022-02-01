@@ -39,6 +39,5 @@ class HW00(unittest.TestCase):
     def test_5_last_modified(self):
         assert os.path.isfile(LAST_MODIFIED_FILENAME), f"File '{LAST_MODIFIED_FILENAME}' does not exist."
         with open(LAST_MODIFIED_FILENAME) as f:
-            contents = f.read().strip()
+            contents = f.read().strip().lower()
             assert contents.startswith("last-modified:"), f"File '{LAST_MODIFIED_FILENAME}' does not start with 'last-modified:'"
-            assert contents.endswith("GMT"), f"File '{LAST_MODIFIED_FILENAME}' does not end with 'GMT'"
