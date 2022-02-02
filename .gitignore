@@ -11,3 +11,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+homework_*/Makefile
+homework_*/run_autograder
+homework_*/autograder.zip
