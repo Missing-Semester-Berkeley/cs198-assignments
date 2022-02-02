@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+set -e
+
+# Sources marco.sh
+source ./marco.sh
+
+# Print current working directory before changing
+pwd
+
+# "Remember" current working directory
+marco
+
+# Change working directory to something else
+cd /
+
+# Go back to previous working directory
+polo
+
+# See if we have the same directory
+pwd
