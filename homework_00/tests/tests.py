@@ -1,6 +1,5 @@
 import os
 import os.path
-import stat
 import unittest
 
 SEMESTER_FILENAME = "semester"
