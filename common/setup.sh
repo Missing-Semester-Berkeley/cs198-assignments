@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-apt-get install -y python3 python3-pip python3-dev
+add-apt-repository -y ppa:deadsnakes/ppa
+apt-get install -y python3.8
 
-pip3 install -r /autograder/source/requirements.txt
+python3.8 -m pip install -r /autograder/source/requirements.txt
