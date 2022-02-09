@@ -33,8 +33,9 @@ class HW01(unittest.TestCase):
         with open(MYLS_FILENAME) as f:
             lines = [line for line in f.readlines() if len(line) > 1]  # Filter out 'intentional' line (non-whitespace)
             assert len(lines) >= 1, f"File '{MYLS_FILENAME}' contains too few lines"
-            assert strip_spaces_and_newlines(lines[-1])[:len("ls")] == "ls", \
-                f"File '{MYLS_FILENAME}' does not contain an ls command"
+            first_word = strip_spaces_and_newlines(lines[-1]).split(" ")[0]
+            assert first_word == "ls" or first_word == "gls", \
+                f"File '{MYLS_FILENAME}' does not contain an (g)ls command"
 
     def test_2_marco(self):
         assert os.path.isfile(MARCO_FILENAME), f"File '{MARCO_FILENAME}' does not exist"
