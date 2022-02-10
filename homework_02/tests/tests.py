@@ -26,9 +26,6 @@ DEMO_FILENAME = "demo.py"
 ITEMS_FILENAME = "items"
 ITEMS_NUMBERED_FILENAME = "items_numbered"
 EXAMPLE_DATA = "example-data.json"
-DEBUG_FAILING_COMMAND_OUTPUT = "out.txt"
-TAR_HTML = "tar_html.sh"
-TAR_HTML_TARBALL = "archive.tar.gz"
 
 
 def strip_spaces_and_newlines(s):
