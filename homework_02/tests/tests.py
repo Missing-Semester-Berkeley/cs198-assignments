@@ -25,7 +25,7 @@ main()
 DEMO_FILENAME = "demo.py"
 ITEMS_FILENAME = "items"
 ITEMS_NUMBERED_FILENAME = "items_numbered"
-DEBUG_FAILING_COMMAND = "debug_failing_command.sh"
+EXAMPLE_DATA = "example-data.json"
 DEBUG_FAILING_COMMAND_OUTPUT = "out.txt"
 TAR_HTML = "tar_html.sh"
 TAR_HTML_TARBALL = "archive.tar.gz"
@@ -66,3 +66,17 @@ class HW02(unittest.TestCase):
                     orig_line = strip_spaces_and_newlines(orig_line)
                     new_line = strip_spaces_and_newlines(new_line)
                     assert f"{i+1}. {orig_line}" == new_line, f"{i+1}. {orig_line} and {new_line} differ"
+
+    def test_3_data(self):
+        from expected_data import data
+        import json
+        with open(EXAMPLE_DATA) as f:
+            user_data = json.load(f)
+            assert len(user_data) == len(data), \
+                f"Expected {len(data)} lines but got {len(user_data)} lines."
+
+            for user_item, expected_item in zip(user_data, data):
+                assert user_item["name"] == expected_item["name"], \
+                    f"Name does not match: Got {user_item['name']} but expected {expected_item['name']}"
+                assert user_item["email"] == expected_item["email"], \
+                    f"Email does not match: Got {user_item['email']} but expected {expected_item['email']}"
