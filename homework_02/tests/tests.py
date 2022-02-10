@@ -24,6 +24,7 @@ main()
 
 DEMO_FILENAME = "demo.py"
 ITEMS_FILENAME = "items"
+ITEMS_NUMBERED_FILENAME = "items_numbered"
 DEBUG_FAILING_COMMAND = "debug_failing_command.sh"
 DEBUG_FAILING_COMMAND_OUTPUT = "out.txt"
 TAR_HTML = "tar_html.sh"
@@ -51,3 +52,17 @@ class HW02(unittest.TestCase):
         with open(DEMO_FILENAME) as f:
             text = f.read()
             assert text == EXPECTED_FIZZBUZZ, "Fizzbuzz text does not match expected."
+
+    def test_2_items(self):
+        assert os.path.isfile(ITEMS_FILENAME), f"File '{ITEMS_FILENAME} does not exist'"
+        assert os.path.isfile(ITEMS_NUMBERED_FILENAME), f"File '{ITEMS_NUMBERED_FILENAME} does not exist'"
+
+        with open(ITEMS_FILENAME) as orig:
+            with open(ITEMS_NUMBERED_FILENAME) as new:
+                orig_lines = orig.readlines()
+                new_lines = new.readlines()
+
+                for (i, (orig_line, new_line)) in enumerate(zip(orig_lines, new_lines)):
+                    orig_line = strip_spaces_and_newlines(orig_line)
+                    new_line = strip_spaces_and_newlines(new_line)
+                    assert f"{i+1}. {orig_line}" == new_line, f"{i+1}. {orig_line} and {new_line} differ"
