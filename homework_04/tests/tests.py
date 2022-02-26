@@ -32,7 +32,7 @@ def execute_command(command, timeout=None):
 class HW04(unittest.TestCase):
     def test_1_handlers(self):
         assert os.path.isfile(HANDLERS), f"File '{HANDLERS} does not exist'"
-        p = subprocess.Popen(HANDLERS, shell=True, stdout=subprocess.PIPE)
+        p = subprocess.Popen([HANDLERS], stdout=subprocess.PIPE)
         try:
             time.sleep(1)  # Race condition: setup signal handlers.
             p.send_signal(signal.SIGINT)
