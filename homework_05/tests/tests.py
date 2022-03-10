@@ -7,7 +7,7 @@ import hashlib
 
 FIZZBUZZ = "fizzbuzz.py"
 COMMITS = "commits"
-EXPECTED_HASH = ["5f84b17d9720fc1a6d28423a253e11e5", "20f057650ac381de1ae0c52d8b4de84a"]
+EXPECTED_HASH = [["5f84b17d9720fc1a6d28423a253e11e5"], ["20f057650ac381de1ae0c52d8b4de84a", "38e14ce3568e2c52db7d196be85d4d55"]]
 ANSWER = "answer"
 EXPECTED_ANSWER_HASH = ["4a255aebaf9a19799a8bae9e697ceec8", "9937bb9efc9b34c7d0bf06ca26e10442"]
 
@@ -39,7 +39,7 @@ class HW05(unittest.TestCase):
             content = f.readlines()
             for i, line in enumerate(content):
                 hashed = hashlib.md5(line.encode()).hexdigest()
-                assert hashed == EXPECTED_HASH[i], f"Incorrect git hash on line {i+1}."
+                assert hashed in EXPECTED_HASH[i], f"Incorrect git hash on line {i+1}."
 
     def test_3_answer(self):
         assert os.path.isfile(ANSWER), f"File '{ANSWER}' does not exist"
