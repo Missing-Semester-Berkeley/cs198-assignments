@@ -1,0 +1,10 @@
+Makefile
+github_page
+pre-commit
+survey
+
+paper.aux
+paper.log
+paper.pdf
+
+plot-data.png
